@@ -4,7 +4,17 @@
 
 ```bash
 ## init venv
-. .venv/bin/activate
+source .venv/bin/activate
+
+pip install devpi
+
+devpi use https://pypi.ltgpu.wodcloud.com
+
+devpi login pytorch --password=spaceIN511
+
+devpi use pytorch/cu118
+
+devpi upload --from-dir .venv/dist
 ```
 
 ## startup
