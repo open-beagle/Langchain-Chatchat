@@ -1,5 +1,26 @@
 # Langchain-Chatchat
 
+## pypiserver update
+
+```bash
+## init venv
+source .venv/bin/activate
+
+pip download \
+  -d .venv/dist \
+  torch==2.0.1 torchvision torchaudio \
+  --index-url https://download.pytorch.org/whl/cu118
+
+pip install twine
+
+twine upload \
+  --repository-url https://pypi.ltgpu.wodcloud.com \
+  -u beagle \
+  -p beagle \
+  --skip-existing \
+  .venv/dist/*
+```
+
 ## python venv
 
 ```bash
@@ -14,7 +35,7 @@ devpi login pytorch --password=spaceIN511
 
 devpi use pytorch/cu118
 
-devpi upload --from-dir .venv/dist
+devpi upload --from-dir .venv/torch
 ```
 
 ## startup
